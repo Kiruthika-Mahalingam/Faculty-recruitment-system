@@ -1,11 +1,14 @@
+
+
 .auth-container {
     width: 400px;
     margin: 50px auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 8px;
     text-align: center;
     background: #fff;
+  
   }
   
   .auth-container h2 {
@@ -17,13 +20,14 @@
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 5px; 
+    
   }
   
   .auth-container button {
     width: 100%;
     padding: 10px;
-    background: #5A36DC;
+    background: #0b4a87;
     color: white;
     border: none;
     border-radius: 5px;
@@ -38,7 +42,7 @@
   }
   
   .auth-container a {
-    color: #5A36DC;
+    color: #0b4a87;
     text-decoration: none;
   }
   

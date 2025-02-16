@@ -1,0 +1,55 @@
+.container {
+    width: 70%;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    background: #2c6db1;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .left-column, .right-column {
+    width: 48%;
+  }
+  
+  p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #333;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .edit-btn {
+    display: block;
+    margin: 20px auto;
+    background: #2c6db1;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background: #1b4f8c;
+  }
+  

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 
-const CandidateSignup = () => {
+const CandidateSignup = ({ setIsAuthenticated }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -11,29 +12,45 @@ const CandidateSignup = () => {
     confirmPassword: "",
   });
 
+  const [error, setError] = useState(""); 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSignup = (e) => {
     e.preventDefault();
+    setError("");  
+
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+      setError("Passwords do not match!");
       return;
     }
-    alert(`Candidate Registered: ${formData.email}`);
+
+    localStorage.setItem("isAuthenticated", "true");
+    localStorage.setItem("userDetails", JSON.stringify(formData));
+
+    if (typeof setIsAuthenticated === "function") {
+      setIsAuthenticated(true);
+    } else {
+      console.error("setIsAuthenticated is not a function");
+    }
+
+    navigate("/candidate-dashboard");
   };
 
   return (
     <div className="auth-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSignup}>
-        <input type="text" name="fullName" placeholder="Full Name" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="date" name="dob" onChange={handleChange} required />
-        <input type="tel" name="phone" placeholder="Phone Number" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} required />
+        <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} required />
+        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+        <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
+        <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} required />
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Confirm</button>
       </form>
     </div>
