@@ -1,0 +1,100 @@
+General Styles
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9eff8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e56a0;
+    padding: 15px 20px;
+    color: white;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-link.login {
+    text-decoration: underline;
+  }
+  
+  /* Main Container */
+  .main-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Job Cards */
+  .job-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .job-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 320px;
+  }
+  
+  .campus-tag {
+    background-color: #1e56a0;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-block;
+  }
+  
+  .job-title {
+    font-size: 18px;
+    color: #1e56a0;
+    margin-top: 10px;
+  }
+  
+  .department {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .job-details {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 14px;
+  }
+  
+  .job-details li {
+    margin-bottom: 5px;
+  }
+  
+  .more-details {
+    color: #1e56a0;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  

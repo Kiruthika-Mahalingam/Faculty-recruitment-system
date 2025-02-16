@@ -1,0 +1,39 @@
+.manage-jobs-container {
+    padding: 20px;
+  }
+  
+  .manage-jobs-container form input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .manage-jobs-container form button {
+    padding: 10px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .manage-jobs-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .manage-jobs-container ul li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .manage-jobs-container ul li button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

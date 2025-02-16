@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 
-const AdminLogin = () => {
+const AdminLogin = ({ setIsAuthenticated }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -10,7 +12,15 @@ const AdminLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert(`Admin Login: ${credentials.email}`);
+    
+    // Fake authentication check
+    if (credentials.email === "admin@example.com" && credentials.password === "admin123") {
+      localStorage.setItem("isAuthenticated", "true"); // Save login state
+      setIsAuthenticated(true);
+      navigate("/"); // Redirect to the dashboard after login
+    } else {
+      alert("Invalid login credentials");
+    }
   };
 
   return (

@@ -36,3 +36,82 @@
     transform: rotate(360deg);
   }
 }
+
+
+.app-container {
+  display: flex; 
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px; 
+  height: 100vh;
+  background-color: #022f5c; 
+  color: white;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.main-content {
+  margin-left: 250px; 
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; 
+}
+.app-container {
+  display: flex;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #022f5c;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-hide {
+  width: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.sidebar-show {
+  width: 250px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .main-content {
+  margin-left: 250px;
+}
+
+.sidebar-closed .main-content {
+  margin-left: 0;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #022f5c;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1000;
+  margin-top: 20px;
+}

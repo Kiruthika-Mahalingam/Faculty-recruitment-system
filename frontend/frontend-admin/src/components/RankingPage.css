@@ -1,0 +1,61 @@
+.ranking-container {
+    margin-left: 260px;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  .selection-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .selection-box label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .selection-box input {
+    padding: 5px;
+    font-size: 16px;
+    width: 50px;
+  }
+  
+  .candidate-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .candidate-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+  }
+  
+  .resume-btn {
+    display: block;
+    margin-top: 10px;
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .schedule-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
