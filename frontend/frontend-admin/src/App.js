@@ -42,7 +42,6 @@ function App() {
             </>
           ) : (
             <>
-              {/* <Route path="/" element={<JobOpenings />} /> */}
               <Route path="/" element={<JobList />} />
               <Route path="/ranking/:jobId" element={<RankingPage />} />
               <Route path="/candidate/:candidateId" element={<CandidateProfile />} />
@@ -58,3 +57,5 @@ function App() {
 }
 
 export default App;
+
+
