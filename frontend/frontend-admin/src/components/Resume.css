@@ -7,24 +7,32 @@
     color: #333;
   }
   
-  /* Filter Input */
+  /* Filter Section */
   .filter-container {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
+    gap: 15px;
   }
   
   label {
     font-weight: bold;
-    margin-right: 10px;
   }
   
-  input {
+  input, select {
     padding: 8px;
-    width: 150px;
     border: 1px solid #022f5c;
     border-radius: 5px;
     font-size: 14px;
+  }
+  
+  input {
+    width: 80px;
+    text-align: center;
+  }
+  
+  .job-filter {
+    width: 200px;
   }
   
   /* Resume List */
@@ -38,7 +46,7 @@
   /* Header Row */
   .resume-header {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 2fr 2fr 1.5fr;
+    grid-template-columns: 0.5fr 2fr 2fr 2fr 2fr 1.5fr;
     font-weight: bold;
     padding: 12px;
     background: #022f5c;
@@ -50,7 +58,7 @@
   /* Candidate Row */
   .resume-item {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 2fr 2fr 1.5fr;
+    grid-template-columns: 0.5fr 2fr 2fr 2fr 2fr 1.5fr;
     align-items: center;
     padding: 15px;
     border-bottom: 1px solid #ddd;
