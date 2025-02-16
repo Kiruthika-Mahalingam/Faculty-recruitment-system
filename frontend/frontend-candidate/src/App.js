@@ -7,6 +7,7 @@ import CurrentJobs from "./pages/CurrentJobs";
 import PersonalDetail from "./pages/PersonalDetail";
 import Sidebar from "./pages/global/Sidebar";
 import Header from "./pages/global/Header";
+// import Feedback from "./pages/Feedback";
 import "./App.css";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/Dashboard" element={<CandidateDashboard />} />
             <Route path="/CurrentJobs" element={<CurrentJobs />} />
             <Route path="/PersonalDetail" element={<PersonalDetail />} />
+            {/* <Route path="/Feedback" element={<Feedback/>} /> */}
           </Routes>
         </div>
       </div>

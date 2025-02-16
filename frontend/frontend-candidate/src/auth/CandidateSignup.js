@@ -37,7 +37,7 @@ const CandidateSignup = ({ setIsAuthenticated }) => {
       console.error("setIsAuthenticated is not a function");
     }
 
-    navigate("/candidate-dashboard");
+    navigate("/Dashboard");
   };
 
   return (

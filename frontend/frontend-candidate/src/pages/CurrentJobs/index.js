@@ -42,7 +42,7 @@ const CurrentJobs = () => {
           <Grid item xs={12} md={6} key={job.id}>
             <Card>
               <CardContent>
-                <Typography variant="h6">{job.title}</Typography>
+                <Typography variant="h6">{job.title}</Typography><hr/>
                 <Typography variant="body2">{job.company}</Typography>
                 <Typography variant="body2">{job.description}</Typography>
                 <Button variant="contained" bg ="#0b4a87" sx={{ mt: 1 }} onClick={() => handleApply(job)}>

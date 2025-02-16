@@ -10,6 +10,7 @@ const Sidebar = () => {
     { path: "/dashboard", icon: <FaBriefcase />, label: "Dashboard" },
     { path: "/CurrentJobs", icon: <FaBriefcase />, label: "Current Jobs" },
     { path: "/PersonalDetail", icon: <FaUserGraduate />, label: "Personal Details" },
+    // { path: "/Feedback", icon: <FaUserGraduate />, label: "Feedback" },
   ];
   
   return (
@@ -23,10 +24,6 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <div className="sidebar-footer">
-        <p>kiruma3615@gmail.com</p>
-        <p>{new Date().toLocaleString()}</p>
-      </div>
     </div>
   );
 };

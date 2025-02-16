@@ -1,13 +1,14 @@
-import { Card, Typography, Box, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
-import { useEffect, useState } from "react";
-import { FaFileAlt } from "react-icons/fa"; 
-
+import { 
+  Card, Typography, Box, Button, Table, TableBody, TableCell, 
+  TableContainer, TableHead, TableRow, Paper, Avatar 
+} from "@mui/material";
+import { useEffect, useState } from "react";  
+import { FaUser } from "react-icons/fa";  
 
 const CandidateDashboard = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
-  const [resume, setResume] = useState(null);
+  const [profilePhoto, setProfilePhoto] = useState(null);
 
-  // Mock candidate details
   const candidate = {
     name: "John Doe",
     email: "johndoe@example.com",
@@ -20,79 +21,80 @@ const CandidateDashboard = () => {
     setAppliedJobs(storedJobs);
   }, []);
 
-  const handleResumeUpload = (event) => {
+  const handleProfileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setResume(file.name);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setProfilePhoto(e.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   return (
     <div style={{ padding: "10px" }}>
 
-      {/* Profile and Resume Upload Section */}
+      {/* Profile and Photo Upload Section */}
       <Box display="flex" gap="20px" mb="30px">
         {/* Profile Box */}
-        <Card sx={{ p: 2  , width: "40%", boxShadow: 3 }}>
+        <Card sx={{ p: 2, width: "40%", boxShadow: 3 }}>
           <Typography p={1} variant="h6" fontWeight="bold">
             Candidate Details
           </Typography>
-          <Typography p={1} variant="body1"><strong>Name:</strong> {candidate.name}</Typography>
-          <Typography p={1} variant="body1"><strong>Email:</strong> {candidate.email}</Typography>
-          <Typography p={1} variant="body1"><strong>Phone:</strong> {candidate.phone}</Typography>
+          <Typography p={1} variant="body1"><strong>Name  </strong> {candidate.name}</Typography><hr/>
+          <Typography p={1} variant="body1"><strong>Email </strong> {candidate.email}</Typography><hr/>
+          <Typography p={1} variant="body1"><strong>Phone </strong> {candidate.phone}</Typography><hr/>
         </Card>
 
+        {/* Profile Photo Upload */}
         <Card sx={{ p: 2, width: "40%", textAlign: "center", boxShadow: 3 }}>
-  <Typography variant="h6" fontWeight="bold">
-    Upload Resume
-  </Typography>
+          <Typography variant="h6" fontWeight="bold">
+            Upload Profile Photo
+          </Typography>
 
-  {/* Resume Icon and Button Wrapper */}
-  <Box 
-    display="flex" 
-    flexDirection="column" 
-    alignItems="center" 
-    justifyContent="center" 
-    gap={2} // Adds spacing between elements
-    mt={2}
-  >
-    {/* Resume Icon */}
-    <FaFileAlt size={50} color="gray" />
+          {/* Profile Picture Preview and Upload */}
+          <Box 
+            display="flex" 
+            flexDirection="column" 
+            alignItems="center" 
+            justifyContent="center" 
+            gap={2} 
+            mt={2}
+          >
+            {/* Profile Image */}
+            {profilePhoto ? (
+              <Avatar src={profilePhoto} sx={{ width: 100, height: 100, border: "2px solid #0b4a87" }} />
+            ) : (
+              <FaUser size={50} color="gray" />
+            )}
 
-    <input
-      type="file"
-      accept=".pdf,.doc,.docx"
-      style={{ display: "none" }}
-      id="resume-upload"
-      onChange={handleResumeUpload}
-    />
-    
-    {/* Upload Button */}
-    <label htmlFor="resume-upload">
-      <Button variant="contained" component="span">
-        Choose File
-      </Button>
-    </label>
-
-    {/* Display Uploaded File Name */}
-    {resume && (
-      <Typography variant="body2" color="green">
-        Uploaded: {resume}
-      </Typography>
-    )}
-  </Box>
-</Card>
+            <input
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }}
+              id="profile-upload"
+              onChange={handleProfileUpload}
+            />
+            
+            {/* Upload Button */}
+            <label htmlFor="profile-upload">
+              <Button variant="contained" component="span">
+                Choose Photo
+              </Button>
+            </label>
+          </Box>
+        </Card>
       </Box>
 
       {/* Applied Jobs Section in Table Format */}
-      
-        <Typography variant="h6" fontWeight="bold" marginBottom={2}>
-          Applied Jobs
-        </Typography>
-        {appliedJobs.length === 0 ? (
-          <Typography>No jobs applied yet.</Typography>
-        ) : (
-          <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
+      <Typography variant="h6" fontWeight="bold" marginBottom={2}>
+        Applied Jobs
+      </Typography>
+      {appliedJobs.length === 0 ? (
+        <Typography>No jobs applied yet.</Typography>
+      ) : (
+        <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: "#0b4a87" }}> {/* Blue header */}
@@ -114,7 +116,7 @@ const CandidateDashboard = () => {
             </TableBody>
           </Table>
         </TableContainer>        
-        )}
+      )}
     </div>
   );
 };
