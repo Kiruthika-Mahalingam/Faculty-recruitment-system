@@ -46,7 +46,7 @@ function App() {
               <Route path="/candidate/:candidateId" element={<CandidateProfile />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/tracking" element={<Tracking />} />
-              <Route path="/resume" element={<Resume />} /> {/* Resume Page Path */}
+              <Route path="/resume" element={<Resume />} /> 
               <Route path="*" element={<Navigate to="/" />} />
             </>
           )}
@@ -57,8 +57,3 @@ function App() {
 }
 
 export default App;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b87826f (updated the ranking sidebar)
