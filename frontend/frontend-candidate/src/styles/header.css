@@ -1,0 +1,59 @@
+/* Header Container */
+.header {
+  height: 90px;
+  width: 100%;
+  background-color: #003366; /* Header color */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between logo & profile */
+  padding: 0 30px; /* Adds spacing on both sides */
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo and text */
+}
+
+/* Logo Image */
+.logo-img {
+  width: 300px; /* Adjust size */
+  height: 50px;
+  object-fit: contain; /* Ensures it fits within the space */
+}
+
+/* Portal Title */
+.portal-title {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0; /* Remove extra spacing */
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white; /* Optional border */
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+}

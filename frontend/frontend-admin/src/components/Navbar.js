@@ -1,13 +1,16 @@
 import React from "react";
 import logo from "../assests/chennai-cit-logo.svg";
 import "../components/Navbar.css"; 
-function Navbar() {
-    return (
-      <nav className="navbar">
-        <h2></h2>
-        <img src={logo} alt="College Logo" className="navbar-logo" />
-      </nav>
-    );
-  }
+const Navbar = () => {
+  return (
+    <header className="header">
+      {/* Logo & Title */}
+      <div className="logo-container">
+        <img src={logo} alt="College Logo" className="logo-img" />
+        {/* <h1 className="portal-title">Career Portal</h1> */}
+      </div>
+    </header>
+  );
+};
   
   export default Navbar;
