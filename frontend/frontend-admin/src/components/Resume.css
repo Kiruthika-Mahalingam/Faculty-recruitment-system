@@ -1,0 +1,100 @@
+.resume-container {
+    margin-left: 260px;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  /* Filter Input */
+  .filter-container {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  input {
+    padding: 8px;
+    width: 150px;
+    border: 1px solid #022f5c;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Resume List */
+  .resume-list {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Row */
+  .resume-header {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 2fr 2fr 1.5fr;
+    font-weight: bold;
+    padding: 12px;
+    background: #022f5c;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Candidate Row */
+  .resume-item {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 2fr 2fr 1.5fr;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #eef5ff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .resume-item:nth-child(odd) {
+    background-color: #dceeff;
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .accept-btn, .reject-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .accept-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .reject-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .accept-btn:hover {
+    background-color: #218838;
+  }
+  
+  .reject-btn:hover {
+    background-color: #c82333;
+  }
+  

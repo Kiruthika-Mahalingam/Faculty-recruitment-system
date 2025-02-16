@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaBriefcase, FaCalendarAlt, FaChartLine } from "react-icons/fa";
+import { FaBriefcase, FaCalendarAlt, FaChartLine, FaListOl } from "react-icons/fa";
 import "../components/Sidebar.css"; 
 
 // const Sidebar = () => {
@@ -50,6 +50,11 @@ const Sidebar = ({ isOpen }) => {
              <FaChartLine className="icon" /> Tracking
            </Link>
          </li>
+         <li>
+          <Link to="/resume"> 
+            <FaListOl className="icon" /> Ranking
+          </Link>
+        </li>
        </ul>
       </div>
     );
