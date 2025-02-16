@@ -1,103 +1,126 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../components/JobList.css"; 
+import { useNavigate } from "react-router-dom"; 
+import "../components/JobList.css";
+
 const JobList = () => {
+  const navigate = useNavigate(); 
+
   const [jobs, setJobs] = useState([
-    { id: 1, title: "Software Engineer", department: "IT", experience: "2-4 years", positions: 3, salary: "$60k-$80k", description: "Develop and maintain web applications." },
-    { id: 2, title: "Data Scientist", department: "AI", experience: "3-5 years", positions: 2, salary: "$70k-$90k", description: "Analyze data and build predictive models." },
-    { id: 3, title: "Marketing Manager", department: "Marketing", experience: "5+ years", positions: 1, salary: "$50k-$70k", description: "Lead marketing campaigns and brand strategies." }
+    {
+      id: 1,
+      title: "Accountant",
+      department: "Directorate of Online Education",
+      reference: "SRM Exam-JP/00036",
+      experience: "2 to 4 years",
+      positions: 1,
+      campus: "CIT",
+      salary: "Rs. 50,000 - 70,000",
+      description: "Responsible for financial reporting and compliance.",
+    },
+    {
+      id: 2,
+      title: "Technical Assistant LMS",
+      department: "Directorate of Online Education",
+      reference: "SRM Exam-JP/00035",
+      experience: "3 to 5 years",
+      positions: 2,
+      campus: "CITAR",
+      salary: "Rs. 40,000 - 60,000",
+      description: "Manage LMS data and provide technical support.",
+    },
   ]);
 
-  const [newJob, setNewJob] = useState({ id: null, title: "", department: "", experience: "", positions: "", salary: "", description: "" });
-  const [isEditing, setIsEditing] = useState(false);
-  const [selectedJob, setSelectedJob] = useState(null);
-  const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
+  const [editingJob, setEditingJob] = useState(null);
+  const [showDetails, setShowDetails] = useState(null);
+  const [newJob, setNewJob] = useState({
+    title: "",
+    department: "",
+    reference: "",
+    experience: "",
+    positions: "",
+    campus: "CIT",
+    salary: "",
+    description: "",
+  });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewJob({ ...newJob, [name]: value });
-  };
-
-  
   const handleAddOrUpdateJob = () => {
-    if (isEditing) {
-      setJobs(jobs.map((job) => (job.id === newJob.id ? newJob : job)));
-      setIsEditing(false);
+    if (editingJob) {
+      setJobs(jobs.map((job) => (job.id === editingJob.id ? { ...newJob, id: editingJob.id } : job)));
+      setEditingJob(null);
     } else {
       setJobs([...jobs, { ...newJob, id: Date.now() }]);
     }
-    setNewJob({ id: null, title: "", department: "", experience: "", positions: "", salary: "", description: "" });
+    setShowPopup(false);
+    setNewJob({ title: "", department: "", experience: "", positions: "", campus: "CIT", salary: "", description: "" });
   };
 
   const handleEdit = (job) => {
     setNewJob(job);
-    setIsEditing(true);
+    setEditingJob(job);
+    setShowPopup(true);
   };
 
   const handleRemove = (id) => {
-    if (window.confirm("Are you sure you want to delete this job?")) {
-      setJobs(jobs.filter((job) => job.id !== id));
-    }
+    setJobs(jobs.filter((job) => job.id !== id));
   };
 
-  const handleShowDetails = (job) => {
-    setSelectedJob(job);
-  };
-
-  const handleClosePopup = () => {
-    setSelectedJob(null);
-  };
-
-  const handleNavigate = (id, event) => {
-    if (event.target.tagName !== "BUTTON") {
-      navigate(`/ranking/${id}`, { state: { job: jobs.find(job => job.id === id) } });
-    }
+  const handleJobClick = (job) => {
+    navigate(`/ranking/${job.id}`, { state: { job } }); 
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">{isEditing ? "Edit Job" : "Add New Job"}</h2>
-
-      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-        <input type="text" name="title" placeholder="Job Title" value={newJob.title} onChange={handleInputChange} className="border p-2 m-2 w-full rounded" />
-        <input type="text" name="department" placeholder="Department" value={newJob.department} onChange={handleInputChange} className="border p-2 m-2 w-full rounded" />
-        <input type="text" name="experience" placeholder="Experience" value={newJob.experience} onChange={handleInputChange} className="border p-2 m-2 w-full rounded" />
-        <input type="number" name="positions" placeholder="Positions Available" value={newJob.positions} onChange={handleInputChange} className="border p-2 m-2 w-full rounded" />
-        <input type="text" name="salary" placeholder="Salary Range" value={newJob.salary} onChange={handleInputChange} className="border p-2 m-2 w-full rounded" />
-        <textarea name="description" placeholder="Job Description" value={newJob.description} onChange={handleInputChange} className="border p-2 m-2 w-full rounded"></textarea>
-
-        <button onClick={handleAddOrUpdateJob} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-          {isEditing ? "Update Job" : "Add Job"}
-        </button>
-      </div>
-
-      <h2 className="text-2xl font-bold mb-4">Job Listings</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="job-container">
+      <button className="add-btn" onClick={() => setShowPopup(true)}>+ Add Job</button>
+      <div className="job-list">
         {jobs.map((job) => (
-          <div key={job.id} onClick={(event) => handleNavigate(job.id, event)} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
-            <h3 className="text-xl font-semibold">{job.title}</h3>
-            <p className="text-gray-600">{job.department} - {job.experience}</p>
-            <p className="text-gray-700 font-bold">{job.salary}</p>
-            <div className="mt-2 flex justify-between">
-              <button onClick={(e) => { e.stopPropagation(); handleEdit(job); }} className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Edit</button>
-              <button onClick={(e) => { e.stopPropagation(); handleRemove(job.id); }} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
-              <button onClick={(e) => { e.stopPropagation(); handleShowDetails(job); }} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">More Details</button>
+          <div key={job.id} className="job-card" onClick={() => handleJobClick(job)}>
+            <span className="campus">🏛 Campus: {job.campus}</span>
+            <h3>{job.title}</h3>
+            <p>{job.department}</p>
+            <p>🛠 Experience: {job.experience}</p>
+            <p>👥 Positions: {job.positions}</p>
+            <p>💰 Salary: {job.salary}</p>
+            <div className="button-group">
+              <button className="details-btn" onClick={(e) => { e.stopPropagation(); setShowDetails(job); }}>More details</button>
+              <button className="edit-btn" onClick={(e) => { e.stopPropagation(); handleEdit(job); }}>Edit</button>
+              <button className="remove-btn" onClick={(e) => { e.stopPropagation(); handleRemove(job.id); }}>Remove</button>
             </div>
           </div>
         ))}
       </div>
 
-     
-      {selectedJob && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/2">
-            <h2 className="text-2xl font-bold">{selectedJob.title}</h2>
-            <p><strong>Department:</strong> {selectedJob.department}</p>
-            <p><strong>Experience:</strong> {selectedJob.experience}</p>
-            <p><strong>Positions Available:</strong> {selectedJob.positions}</p>
-            <p><strong>Salary:</strong> {selectedJob.salary}</p>
-            <p><strong>Description:</strong> {selectedJob.description}</p>
-            <button onClick={handleClosePopup} className="mt-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Close</button>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>{editingJob ? "Edit Job" : "Add Job"}</h2>
+            <input type="text" placeholder="Role" value={newJob.title} onChange={(e) => setNewJob({ ...newJob, title: e.target.value })} />
+            <input type="text" placeholder="Department" value={newJob.department} onChange={(e) => setNewJob({ ...newJob, department: e.target.value })} />
+            <input type="text" placeholder="Experience" value={newJob.experience} onChange={(e) => setNewJob({ ...newJob, experience: e.target.value })} />
+            <input type="number" placeholder="No. of Positions" value={newJob.positions} onChange={(e) => setNewJob({ ...newJob, positions: e.target.value })} />
+            <select value={newJob.campus} onChange={(e) => setNewJob({ ...newJob, campus: e.target.value })}>
+              <option value="CIT">CIT</option>
+              <option value="CITAR">CITAR</option>
+            </select>
+            <input type="text" placeholder="Salary Range" value={newJob.salary} onChange={(e) => setNewJob({ ...newJob, salary: e.target.value })} />
+            <textarea placeholder="Description" value={newJob.description} onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}></textarea>
+            <button onClick={handleAddOrUpdateJob}>OK</button>
+            <button onClick={() => setShowPopup(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {showDetails && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>{showDetails.title}</h2>
+            <p><strong>Department:</strong> {showDetails.department}</p>
+            <p><strong>Experience:</strong> {showDetails.experience}</p>
+            <p><strong>Positions:</strong> {showDetails.positions}</p>
+            <p><strong>Campus:</strong> {showDetails.campus}</p>
+            <p><strong>Salary:</strong> {showDetails.salary}</p>
+            <p><strong>Description:</strong> {showDetails.description}</p>
+            <button onClick={() => setShowDetails(null)}>Close</button>
           </div>
         </div>
       )}
