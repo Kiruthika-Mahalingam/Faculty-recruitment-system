@@ -143,8 +143,12 @@ const JobList = () => {
       id: 1,
       title: "Accountant",
       department: "Directorate of Online Education",
+<<<<<<< HEAD
       reference: "SRM Exam-JP/00036",
       experience: "2 to 4 years",
+=======
+           experience: "2 to 4 years",
+>>>>>>> b87826f (updated the ranking sidebar)
       positions: 1,
       campus: "CIT",
       salary: "Rs. 50,000 - 70,000",
@@ -154,7 +158,10 @@ const JobList = () => {
       id: 2,
       title: "Technical Assistant LMS",
       department: "Directorate of Online Education",
+<<<<<<< HEAD
       reference: "SRM Exam-JP/00035",
+=======
+>>>>>>> b87826f (updated the ranking sidebar)
       experience: "3 to 5 years",
       positions: 2,
       campus: "CITAR",

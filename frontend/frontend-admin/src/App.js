@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import JobOpenings from "./pages/JobOpenings";
 import JobList from "./components/JobList";
 import RankingPage from "./components/RankingPage";
 import CandidateProfile from "./components/CandidateProfile";
 import Schedule from "./components/Schedule";
 import Tracking from "./components/Tracking";
+import Resume from "./components/Resume"; // Import Resume component
 import Navbar from "./components/Navbar";
 import AdminLogin from "./auth/AdminLogin";
 import AdminSignup from "./auth/AdminSignup";
 import "./App.css";
 
-
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
+
   useEffect(() => {
     const loggedIn = localStorage.getItem("isAuthenticated");
     setIsAuthenticated(loggedIn === "true");
@@ -33,12 +33,11 @@ function App() {
 
       <div className="main-content">
         <Routes>
-          
           {!isAuthenticated ? (
             <>
               <Route path="/admin-login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="/admin-signup" element={<AdminSignup />} />
-              <Route path="*" element={<Navigate to="/admin-login" />} /> {/* Redirect all pages to login */}
+              <Route path="*" element={<Navigate to="/admin-login" />} />
             </>
           ) : (
             <>
@@ -47,7 +46,8 @@ function App() {
               <Route path="/candidate/:candidateId" element={<CandidateProfile />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/tracking" element={<Tracking />} />
-              <Route path="*" element={<Navigate to="/" />} /> 
+              <Route path="/resume" element={<Resume />} /> {/* Resume Page Path */}
+              <Route path="*" element={<Navigate to="/" />} />
             </>
           )}
         </Routes>
@@ -57,5 +57,8 @@ function App() {
 }
 
 export default App;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b87826f (updated the ranking sidebar)
