@@ -5,9 +5,9 @@ import "../components/RankingPage.css";
 const RankingPage = () => {
   const { id } = useParams(); 
   const [candidates, setCandidates] = useState([
-    { id: 1, name: "John Doe", experience: "5 years", skills: ["React", "Node.js"], rank: 1, resume: "john_resume.pdf", email: "john@example.com" },
-    { id: 2, name: "Jane Smith", experience: "3 years", skills: ["Python", "Django"], rank: 2, resume: "jane_resume.pdf", email: "jane@example.com" },
-    { id: 3, name: "Mike Johnson", experience: "4 years", skills: ["Java", "Spring"], rank: 3, resume: "mike_resume.pdf", email: "mike@example.com" },
+    { id: 1, name: "raj", experience: "5 years", skills: ["React", "Node.js"], rank: 1, resume: "john_resume.pdf", email: "john@example.com" },
+    { id: 2, name: "mani", experience: "3 years", skills: ["Python", "Django"], rank: 2, resume: "jane_resume.pdf", email: "jane@example.com" },
+    { id: 3, name: "mohan", experience: "4 years", skills: ["Java", "Spring"], rank: 3, resume: "mike_resume.pdf", email: "mike@example.com" },
   ]);
 
   const [selectedCount, setSelectedCount] = useState(0);

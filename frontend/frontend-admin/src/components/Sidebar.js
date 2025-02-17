@@ -8,7 +8,7 @@ import "../components/Sidebar.css";
   
     const menuItems = [
       { path: "/jobs", icon: <FaBriefcase />, label: "Job Openings" },
-      { path: "/schedul", icon: <FaCalendarAlt />, label: "Schedule" },
+      { path: "/schedule", icon: <FaCalendarAlt />, label: "Schedule" },
       { path: "/tracking", icon: <FaChartLine />, label: "Tracking" },
       { path: "/resume", icon: <FaListOl />, label: "Ranking" }
     ];

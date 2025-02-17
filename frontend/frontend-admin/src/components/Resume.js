@@ -7,11 +7,11 @@ const Resume = () => {
 
   // Static candidate data with job roles
   const candidates = [
-    { id: 1, name: "Alice Johnson", job: "Accountant", personalDetails: "/alice-details.pdf", resume: "/alice-resume.pdf" },
-    { id: 2, name: "Bob Williams", job: "Technical Assistant LMS", personalDetails: "/bob-details.pdf", resume: "/bob-resume.pdf" },
-    { id: 3, name: "Charlie Brown", job: "Accountant", personalDetails: "/charlie-details.pdf", resume: "/charlie-resume.pdf" },
-    { id: 4, name: "David Smith", job: "Technical Assistant LMS", personalDetails: "/david-details.pdf", resume: "/david-resume.pdf" },
-    { id: 5, name: "Eva Davis", job: "Accountant", personalDetails: "/eva-details.pdf", resume: "/eva-resume.pdf" },
+    { id: 1, name: "raj", job: "Accountant", personalDetails: "/alice-details.pdf", resume: "/alice-resume.pdf" },
+    { id: 2, name: "mani", job: "Technical Assistant LMS", personalDetails: "/bob-details.pdf", resume: "/bob-resume.pdf" },
+    { id: 3, name: "mohan", job: "Accountant", personalDetails: "/charlie-details.pdf", resume: "/charlie-resume.pdf" },
+    { id: 4, name: "krish", job: "Technical Assistant LMS", personalDetails: "/david-details.pdf", resume: "/david-resume.pdf" },
+    { id: 5, name: "dhanush", job: "Accountant", personalDetails: "/eva-details.pdf", resume: "/eva-resume.pdf" },
   ];
 
   // Filter candidates based on job role selection

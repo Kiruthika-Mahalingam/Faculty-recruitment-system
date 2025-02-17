@@ -7,7 +7,7 @@ const JobList = () => {
       id: 1,
       title: "Accountant",
       department: "Directorate of Online Education",
-      reference: "SRM Exam-JP/00036",
+      reference: "CIT Exam-JP/00036",
       experience: "2 to 4 years",
       positions: 1,
       campus: "CIT",
@@ -18,7 +18,7 @@ const JobList = () => {
       id: 2,
       title: "Technical Assistant LMS",
       department: "Directorate of Online Education",
-      reference: "SRM Exam-JP/00035",
+      reference: "CIT Exam-JP/00035",
       experience: "3 to 5 years",
       positions: 2,
       campus: "CITAR",
@@ -87,6 +87,7 @@ const JobList = () => {
             <span className="campus-tag">🏛 Campus: {job.campus}</span>
             <h3 className="job-title">{job.title}</h3>
             <p>{job.department}</p>
+            <p>🛠 Reference: {job.reference}</p>
             <p>🛠 Experience: {job.experience}</p>
             <p>👥 Positions: {job.positions}</p>
             <p>💰 Salary: {job.salary}</p>
@@ -105,6 +106,7 @@ const JobList = () => {
             <h2>{editingJob ? "Edit Job" : "Add Job"}</h2>
             <input type="text" placeholder="Role" value={newJob.title} onChange={(e) => setNewJob({ ...newJob, title: e.target.value })} />
             <input type="text" placeholder="Department" value={newJob.department} onChange={(e) => setNewJob({ ...newJob, department: e.target.value })} />
+            <input type="text" placeholder="Reference" value={newJob.reference} onChange={(e) => setNewJob({ ...newJob, reference: e.target.value })} />
             <input type="text" placeholder="Experience" value={newJob.experience} onChange={(e) => setNewJob({ ...newJob, experience: e.target.value })} />
             <input type="number" placeholder="No. of Positions" value={newJob.positions} onChange={(e) => setNewJob({ ...newJob, positions: e.target.value })} />
             <select value={newJob.campus} onChange={(e) => setNewJob({ ...newJob, campus: e.target.value })}>

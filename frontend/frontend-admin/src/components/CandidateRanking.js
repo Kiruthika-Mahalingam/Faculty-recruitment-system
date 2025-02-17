@@ -6,9 +6,9 @@ const CandidateRanking = () => {
   const navigate = useNavigate();
 
   const [candidates, setCandidates] = useState([
-    { id: 1, name: "John Doe", rank: 1, email: "john@example.com", status: "Pending", resume: "/dummy_resume.pdf", details: "5 years of experience in CS." },
-    { id: 2, name: "Jane Smith", rank: 2, email: "jane@example.com", status: "Pending", resume: "/dummy_resume.pdf", details: "MSc in Data Science, 3 years experience." },
-    { id: 3, name: "Alice Brown", rank: 3, email: "alice@example.com", status: "Pending", resume: "/dummy_resume.pdf", details: "Full-stack developer with React expertise." },
+    { id: 1, name: "raj", rank: 1, email: "raj@example.com", status: "Pending", resume: "/dummy_resume.pdf", details: "5 years of experience in CS." },
+    { id: 2, name: "mani", rank: 2, email: "mani@example.com", status: "Pending", resume: "/dummy_resume.pdf", details: "MSc in Data Science, 3 years experience." },
+    { id: 3, name: "mohan", rank: 3, email: "mohan@example.com", status: "Pending", resume: "/dummy_resume.pdf", details: "Full-stack developer with React expertise." },
   ]);
 
   const [topN, setTopN] = useState(""); 

@@ -7,12 +7,12 @@ const Tracking = () => {
 
   // Static data for selected candidates
   const candidates = [
-    { id: 1, name: "Alice Johnson", job: "Accountant", round: 1 },
-    { id: 2, name: "Bob Williams", job: "Technical Assistant LMS", round: 1 },
-    { id: 3, name: "Charlie Brown", job: "Accountant", round: 2 },
-    { id: 4, name: "David Smith", job: "Technical Assistant LMS", round: 2 },
-    { id: 5, name: "Eva Davis", job: "Accountant", round: 3 },
-    { id: 6, name: "Frank White", job: "Accountant", round: 3 },
+    { id: 1, name: "raj", job: "Accountant", round: 1 },
+    { id: 2, name: "mani", job: "Technical Assistant LMS", round: 1 },
+    { id: 3, name: "mohan", job: "Accountant", round: 2 },
+    { id: 4, name: "krish", job: "Technical Assistant LMS", round: 2 },
+    { id: 5, name: "dhanush", job: "Accountant", round: 3 },
+    { id: 6, name: "preethi", job: "Accountant", round: 3 },
   ];
 
   // Filter candidates by job role and round

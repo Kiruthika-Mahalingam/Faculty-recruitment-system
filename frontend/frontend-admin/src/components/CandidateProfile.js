@@ -6,7 +6,7 @@ const CandidateProfile = () => {
   const { candidateId } = useParams(); 
   const candidate = {
     id: candidateId,
-    name: "John Doe",
+    name: "raj",
     experience: "5 years",
     skills: ["React", "Node.js", "MongoDB"],
     education: "B.Tech in Computer Science",
